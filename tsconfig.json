@@ -4,9 +4,9 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "paths": {
-      "@layouts/*": ["src/layouts/*"],
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   }
 }
