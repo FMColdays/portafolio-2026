@@ -1,0 +1,29 @@
+---
+import MenuIcon from '@icons/MenuIcon.svg'
+
+interface Props {
+  navigation: {
+    label: string
+    href: string
+  }[]
+}
+
+const { navigation } = Astro.props
+---
+
+<div class='dropdown dropdown-end md:hidden'>
+  <label tabindex='0' class='btn btn-ghost btn-sm btn-square'>
+    <MenuIcon class='w-5 h-5' />
+  </label>
+  <ul tabindex='0' class='dropdown-content menu mt-2 p-2 shadow-lg bg-base-200 rounded-2xl border border-base-content/10 w-48 text-sm'>
+    {
+      navigation.map(({ label, href }) => (
+        <li>
+          <a href={href} class='font-medium text-base-content/70 hover:text-primary'>
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
