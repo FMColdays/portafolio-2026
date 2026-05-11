@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import type { ui } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
+import MiImagen from '@img/mi-imagen.webp'
+
+const lang = (Astro.currentLocale ?? 'es') as keyof typeof ui
+const t = useTranslations(lang)
+
+const sectionId = t('nav.about.href').slice(1)
+---
+
+<section id={sectionId} class='py-24'>
+  <div class='max-w-5xl mx-auto px-6'>
+
+    <div class='flex items-center gap-4 mb-16 opacity-0' data-animate>
+      <span class='font-mono text-[10px] text-primary tracking-[0.4em] uppercase'>[ 05 ]</span>
+      <h2 class='text-3xl font-extrabold tracking-tight'>{t('about.title')}</h2>
+      <div class='flex-1 h-px bg-base-content/10' />
+    </div>
+
+    <div class='grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:gap-16 items-start'>
+
+      <div class='flex flex-col gap-5 opacity-0' data-animate data-delay='100'>
+        <div class='relative'>
+          <div class='absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-primary/20 bg-primary/4' />
+          <div class='relative rounded-2xl overflow-hidden aspect-square shadow-xl shadow-black/30'>
+            <Image
+              src={MiImagen}
+              alt='Erick González'
+              class='w-full h-full object-cover object-top'
+            />
+            <div class='absolute inset-0 bg-linear-to-t from-black/20 to-transparent' />
+          </div>
+          <div class='absolute -left-3 top-8 bottom-8 w-0.5 bg-primary/40 rounded-full' />
+        </div>
+
+        <div class='flex flex-col gap-2 pl-1'>
+          <div class='inline-flex items-center gap-2 font-mono text-[11px] text-base-content/45'>
+            <span class='w-1 h-1 rounded-full bg-primary/50 shrink-0'></span>
+            {t('about.location')}
+          </div>
+          <div class='inline-flex items-center gap-2 font-mono text-[11px] text-base-content/45'>
+            <span class='w-1 h-1 rounded-full bg-primary/50 shrink-0'></span>
+            {t('about.school')}
+          </div>
+          <div class='inline-flex items-center gap-2 font-mono text-[11px] text-primary/70'>
+            <span class='w-1 h-1 rounded-full bg-primary animate-pulse shrink-0'></span>
+            {t('about.available')}
+          </div>
+        </div>
+      </div>
+
+      <div class='flex flex-col gap-5 opacity-0' data-animate data-delay='200'>
+        <p class='text-base-content/70 text-[15px] leading-relaxed' set:html={t('about.p1')} />
+        <p class='text-base-content/70 text-[15px] leading-relaxed' set:html={t('about.p2')} />
+        <p class='text-base-content/70 text-[15px] leading-relaxed' set:html={t('about.p3')} />
+      </div>
+    </div>
+  </div>
+</section>
+
+
