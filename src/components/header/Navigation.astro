@@ -14,7 +14,7 @@ const { navigation } = Astro.props
     navigation.map(({ label, href }) => (
       <a
         href={href}
-        class='relative text-xs font-medium text-base-content/60 hover:text-base-content transition-colors duration-200 group py-1'
+        class='relative text-sm font-medium text-base-content/60 hover:text-base-content transition-colors duration-200 group py-1'
       >
         {label}
         <span class='absolute bottom-0 left-0 h-px w-0 bg-primary transition-all duration-300 ease-out group-hover:w-full' />

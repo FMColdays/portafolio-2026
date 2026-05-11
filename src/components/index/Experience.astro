@@ -1,0 +1,149 @@
+---
+import type { ui } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
+import AngularIcon  from '@icons/AngularIcon.svg'
+import AstroIcon    from '@icons/AstroIcon.svg'
+import DockerIcon   from '@icons/DockerIcon.svg'
+import JavaIcon     from '@icons/JavaIcon.svg'
+import MySQLIcon    from '@icons/MySQLIcon.svg'
+import NodeIcon     from '@icons/NodeIcon.svg'
+import PostgreSQLIcon from '@icons/PostgreSQLIcon.svg'
+import ReactIcon    from '@icons/ReactIcon.svg'
+import ShopifyIcon  from '@icons/ShopifyIcon.svg'
+import SpringBootIcon from '@icons/SpringBootIcon.svg'
+import TailwindIcon from '@icons/TailwindIcon.svg'
+import WordPressIcon from '@icons/WordPressIcon.svg'
+
+const lang = (Astro.currentLocale ?? 'es') as keyof typeof ui
+const t = useTranslations(lang)
+
+interface TechInfo {
+  href:  string
+  color: string
+  Icon:  any
+}
+
+const techData: Record<string, TechInfo> = {
+  'Node.js':     { href: 'https://nodejs.org/docs',                                   color: '#339933', Icon: NodeIcon      },
+  'React':       { href: 'https://react.dev',                                          color: '#61DAFB', Icon: ReactIcon     },
+  'PostgreSQL':  { href: 'https://www.postgresql.org/docs/',                           color: '#4169E1', Icon: PostgreSQLIcon},
+  'Docker':      { href: 'https://docs.docker.com',                                    color: '#2496ED', Icon: DockerIcon    },
+  'Astro':       { href: 'https://docs.astro.build',                                   color: '#581896', Icon: AstroIcon     },
+  'Tailwind CSS':{ href: 'https://tailwindcss.com/docs',                               color: '#06B6D4', Icon: TailwindIcon  },
+  'Shopify':     { href: 'https://shopify.dev/docs',                                   color: '#7AB55C', Icon: ShopifyIcon   },
+  'WordPress':   { href: 'https://developer.wordpress.org',                            color: '#21759B', Icon: WordPressIcon },
+  'Java':        { href: 'https://docs.oracle.com/en/java/',                           color: '#ED8B00', Icon: JavaIcon      },
+  'Spring Boot': { href: 'https://docs.spring.io/spring-boot/docs/current/reference/html/', color: '#6DB33F', Icon: SpringBootIcon },
+  'Angular':     { href: 'https://angular.dev/overview',                               color: '#DD0031', Icon: AngularIcon   },
+  'MySQL':       { href: 'https://dev.mysql.com/doc/',                                 color: '#4479A1', Icon: MySQLIcon     },
+}
+
+const experiences = lang === 'es'
+  ? [
+      {
+        company:     'Grupo Montajes',
+        role:        'Desarrollador Full Stack',
+        period:      ['Ene 2024', null],
+        description: 'Desarrollo y mantenimiento de aplicaciones internas para gestión de proyectos industriales. Implementación de APIs REST y dashboards con datos en tiempo real.',
+        tags:        ['Node.js', 'React', 'PostgreSQL', 'Docker'],
+      },
+      {
+        company:     'Freelance',
+        role:        'Desarrollador Web',
+        period:      ['Mar 2022', 'Dic 2023'],
+        description: 'Diseño y desarrollo de sitios web y tiendas en línea para pequeñas empresas. Enfoque en rendimiento, SEO y experiencia de usuario.',
+        tags:        ['Astro', 'Tailwind CSS', 'Shopify', 'WordPress'],
+      },
+      {
+        company:     'Softtek',
+        role:        'Desarrollador Junior',
+        period:      ['Jun 2021', 'Feb 2022'],
+        description: 'Participación en proyectos de desarrollo de software para clientes del sector financiero. Mantenimiento de aplicaciones legacy y migración a tecnologías modernas.',
+        tags:        ['Java', 'Spring Boot', 'Angular', 'MySQL'],
+      },
+    ]
+  : [
+      {
+        company:     'Grupo Montajes',
+        role:        'Full Stack Developer',
+        period:      ['Jan 2024', null],
+        description: 'Development and maintenance of internal applications for industrial project management. Implementation of REST APIs and real-time data dashboards.',
+        tags:        ['Node.js', 'React', 'PostgreSQL', 'Docker'],
+      },
+      {
+        company:     'Freelance',
+        role:        'Web Developer',
+        period:      ['Mar 2022', 'Dec 2023'],
+        description: 'Design and development of websites and online stores for small businesses. Focus on performance, SEO and user experience.',
+        tags:        ['Astro', 'Tailwind CSS', 'Shopify', 'WordPress'],
+      },
+      {
+        company:     'Softtek',
+        role:        'Junior Developer',
+        period:      ['Jun 2021', 'Feb 2022'],
+        description: 'Participation in software development projects for financial sector clients. Maintenance of legacy applications and migration to modern technologies.',
+        tags:        ['Java', 'Spring Boot', 'Angular', 'MySQL'],
+      },
+    ]
+---
+
+<section id='experiencia' class='py-24'>
+  <div class='max-w-5xl mx-auto px-6'>
+    <div class='flex items-center gap-4 mb-16 opacity-0' data-animate>
+      <span class='font-mono text-[10px] text-primary tracking-[0.4em] uppercase'>[ 02 ]</span>
+      <h2 class='text-3xl font-extrabold tracking-tight'>{t('experience.title')}</h2>
+      <div class='flex-1 h-px bg-base-content/10' />
+    </div>
+
+    <div class='relative'>
+      <div class='absolute left-0 top-2 bottom-2 w-px bg-base-content/10 hidden md:block' />
+      <div class='flex flex-col gap-12'>
+        {experiences.map((exp, i) => (
+          <div class='group md:pl-10 relative opacity-0' data-animate data-delay={i * 150}>
+
+            <div class='hidden md:flex absolute -left-1.25 top-1.5 w-2.75 h-2.75 rounded-full border-2 border-primary bg-base-100 group-hover:bg-primary transition-colors duration-300' />
+
+            <div class='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3'>
+              <div>
+                <h3 class='font-bold text-lg leading-tight'>{exp.role}</h3>
+                <p class='font-mono text-sm text-primary'>{exp.company}</p>
+              </div>
+              <span class='font-mono text-xs text-base-content/40 whitespace-nowrap pt-0.5'>
+                {exp.period[0]} — {exp.period[1] ?? t('experience.present')}
+              </span>
+            </div>
+
+            <p class='text-base-content/55 text-sm leading-relaxed mb-4 max-w-xl'>
+              {exp.description}
+            </p>
+
+            <div class='flex flex-wrap gap-2'>
+              {exp.tags.map(tag => {
+                const tech = techData[tag]
+                if (!tech) return (
+                  <span class='font-mono text-[11px] px-2.5 py-1 rounded-md bg-base-content/6 text-base-content/50 border border-base-content/8'>
+                    {tag}
+                  </span>
+                )
+                return (
+                  <a
+                    href={tech.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='inline-flex items-center gap-1.5 font-mono text-[11px] px-2.5 py-1 rounded-md border transition-all duration-200 hover:opacity-80'
+                    style={`background-color: ${tech.color}18; color: ${tech.color}; border-color: ${tech.color}35;`}
+                  >
+                    <tech.Icon class='w-3.5 h-3.5 shrink-0 fill-current' aria-hidden='true' />
+                    {tag}
+                  </a>
+                )
+              })}
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

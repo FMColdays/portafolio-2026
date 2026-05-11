@@ -14,7 +14,7 @@ const lang = Astro.currentLocale ?? 'es'
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html class="scroll-smooth" lang={lang}>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
@@ -36,6 +36,26 @@ const lang = Astro.currentLocale ?? 'es'
       }
       applyTheme()
       document.addEventListener('astro:after-swap', applyTheme)
+    </script>
+    <script>
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) return
+              const el = entry.target as HTMLElement
+              el.style.animationDelay = `${el.dataset.delay ?? 0}ms`
+              el.classList.remove('opacity-0')
+              el.classList.add('animate-fade-in-up')
+              observer.unobserve(el)
+            })
+          },
+          { threshold: 0.15 }
+        )
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el))
+      }
+
+      document.addEventListener('astro:page-load', initScrollAnimations)
     </script>
   </body>
 </html>
