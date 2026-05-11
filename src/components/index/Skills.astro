@@ -1,0 +1,111 @@
+---
+import type { ui } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
+import AngularIcon    from '@icons/AngularIcon.svg'
+import AstroIcon      from '@icons/AstroIcon.svg'
+import DockerIcon     from '@icons/DockerIcon.svg'
+import GitIcon        from '@icons/GitIcon.svg'
+import JavaIcon       from '@icons/JavaIcon.svg'
+import MySQLIcon      from '@icons/MySQLIcon.svg'
+import NodeIcon       from '@icons/NodeIcon.svg'
+import PostgreSQLIcon from '@icons/PostgreSQLIcon.svg'
+import ReactIcon      from '@icons/ReactIcon.svg'
+import ShopifyIcon    from '@icons/ShopifyIcon.svg'
+import SpringBootIcon from '@icons/SpringBootIcon.svg'
+import TailwindIcon   from '@icons/TailwindIcon.svg'
+import TypeScriptIcon from '@icons/TypeScriptIcon.svg'
+import WordPressIcon  from '@icons/WordPressIcon.svg'
+
+const lang = (Astro.currentLocale ?? 'es') as keyof typeof ui
+const t = useTranslations(lang)
+
+interface Skill {
+  name:  string
+  color: string
+  Icon:  any
+}
+
+interface Category {
+  key: string
+  skills: Skill[]
+}
+
+const allSkills: Record<string, Skill> = {
+  'TypeScript':   { name: 'TypeScript',   color: '#3178C6', Icon: TypeScriptIcon  },
+  'React':        { name: 'React',        color: '#61DAFB', Icon: ReactIcon       },
+  'Angular':      { name: 'Angular',      color: '#DD0031', Icon: AngularIcon     },
+  'Astro':        { name: 'Astro',        color: '#FF5D01', Icon: AstroIcon       },
+  'Tailwind CSS': { name: 'Tailwind CSS', color: '#06B6D4', Icon: TailwindIcon    },
+  'Node.js':      { name: 'Node.js',      color: '#339933', Icon: NodeIcon        },
+  'Java':         { name: 'Java',         color: '#ED8B00', Icon: JavaIcon        },
+  'Spring Boot':  { name: 'Spring Boot',  color: '#6DB33F', Icon: SpringBootIcon  },
+  'PostgreSQL':   { name: 'PostgreSQL',   color: '#4169E1', Icon: PostgreSQLIcon  },
+  'MySQL':        { name: 'MySQL',        color: '#4479A1', Icon: MySQLIcon       },
+  'Docker':       { name: 'Docker',       color: '#2496ED', Icon: DockerIcon      },
+  'Git':          { name: 'Git',          color: '#F05032', Icon: GitIcon         },
+  'Shopify':      { name: 'Shopify',      color: '#7AB55C', Icon: ShopifyIcon     },
+  'WordPress':    { name: 'WordPress',    color: '#21759B', Icon: WordPressIcon   },
+}
+
+const categories: Category[] = [
+  {
+    key:    'skills.cat.frontend',
+    skills: ['TypeScript', 'React', 'Angular', 'Astro', 'Tailwind CSS'].map(k => allSkills[k]),
+  },
+  {
+    key:    'skills.cat.backend',
+    skills: ['Node.js', 'Java', 'Spring Boot'].map(k => allSkills[k]),
+  },
+  {
+    key:    'skills.cat.databases',
+    skills: ['PostgreSQL', 'MySQL'].map(k => allSkills[k]),
+  },
+  {
+    key:    'skills.cat.devops',
+    skills: ['Docker', 'Git'].map(k => allSkills[k]),
+  },
+  {
+    key:    'skills.cat.cms',
+    skills: ['Shopify', 'WordPress'].map(k => allSkills[k]),
+  },
+]
+
+const sectionId = lang === 'es' ? 'habilidades' : 'skills'
+---
+
+<section id={sectionId} class='py-24'>
+  <div class='max-w-5xl mx-auto px-6'>
+
+    <div class='flex items-center gap-4 mb-16 opacity-0' data-animate>
+      <span class='font-mono text-[10px] text-primary tracking-[0.4em] uppercase'>[ 04 ]</span>
+      <h2 class='text-3xl font-extrabold tracking-tight'>{t('skills.title')}</h2>
+      <div class='flex-1 h-px bg-base-content/10' />
+    </div>
+
+    <div class='flex flex-col divide-y divide-base-content/6'>
+      {categories.map((cat, i) => (
+        <div
+          class='grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-3 sm:gap-6 py-6 first:pt-0 last:pb-0 opacity-0'
+          data-animate
+          data-delay={i * 100}
+        >
+          <span class='font-mono text-[10px] text-base-content/35 tracking-widest uppercase pt-1 shrink-0'>
+            {t(cat.key as any)}
+          </span>
+
+          <div class='flex flex-wrap gap-2'>
+            {cat.skills.map(skill => (
+              <div
+                class='group/skill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200 cursor-default hover:scale-105'
+                style={`background-color: ${skill.color}12; color: ${skill.color}; border-color: ${skill.color}28;`}
+              >
+                <skill.Icon class='w-4 h-4 shrink-0 fill-current' aria-hidden='true' />
+                <span class='font-mono text-[11px] font-medium tracking-wide'>{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

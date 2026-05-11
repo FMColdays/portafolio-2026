@@ -85,9 +85,11 @@ const experiences = lang === 'es'
         tags:        ['Java', 'Spring Boot', 'Angular', 'MySQL'],
       },
     ]
+
+    const sectionId = lang === 'es' ? 'experiencia' : 'experience'
 ---
 
-<section id='experiencia' class='py-24'>
+<section id={sectionId} class='py-24'>
   <div class='max-w-5xl mx-auto px-6'>
     <div class='flex items-center gap-4 mb-16 opacity-0' data-animate>
       <span class='font-mono text-[10px] text-primary tracking-[0.4em] uppercase'>[ 02 ]</span>
