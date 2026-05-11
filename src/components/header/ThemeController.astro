@@ -4,9 +4,24 @@ import SunIcon from '@icons/SunIcon.svg'
 ---
 
 <label class='swap swap-rotate'>
-  <input type='checkbox' class='theme-controller' value='light' />
+  <input id='theme-toggle' type='checkbox' />
 
   <SunIcon class='swap-off size-6 fill-current' />
 
   <MoonIcon class='swap-on size-6 fill-current' />
 </label>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const toggle = document.querySelector('#theme-toggle') as HTMLInputElement
+    const stored = localStorage.getItem('theme') ?? 'dark'
+
+    toggle.checked = stored === 'light'
+
+    toggle.addEventListener('change', () => {
+      const theme = toggle.checked ? 'light' : 'dark'
+      document.documentElement.setAttribute('data-theme', theme)
+      localStorage.setItem('theme', theme)
+    })
+  })
+</script>
