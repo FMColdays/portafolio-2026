@@ -1,7 +1,13 @@
 ---
+import Hero from '@components/index/Hero.astro'
 import Layout from '@layouts/Layout.astro'
+import type { ui } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
+
+const lang = (Astro.currentLocale ?? 'es') as keyof typeof ui
+const t = useTranslations(lang)
 ---
 
-<Layout title='Mi portafolio' description='Portafolio de Erick González Pérez, desarrollador Full Stack'>
-  <div class='h-[300vh]'></div>
+<Layout title={t('site.title')} description={t('site.description')}>
+  <Hero />
 </Layout>

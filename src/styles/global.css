@@ -1,2 +1,16 @@
 @import 'tailwindcss';
+@import 'tailwind-animations';
 @plugin "daisyui";
+
+/* efd81d */
+
+@plugin "daisyui/theme" {
+  name: 'dark';
+  default: true;
+  --color-primary: #dac10b;
+}
+@plugin "daisyui/theme" {
+  name: 'light';
+  default: true;
+  --color-primary: #dac10b;
+}
