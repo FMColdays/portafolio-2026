@@ -12,6 +12,7 @@ const lang = Astro.currentLocale ?? 'es'
         href={getRelativeLocaleUrl(code, '/')}
         aria-label={label}
         aria-current={code === lang ? 'page' : undefined}
+        data-lang-switch
         class:list={[
           'px-2.5 py-1 text-xs font-bold tracking-widest rounded-md leading-none transition-all duration-200',
           code === lang ? 'bg-base-content text-base-100 shadow-sm' : 'text-base-content/35 hover:text-base-content/60',

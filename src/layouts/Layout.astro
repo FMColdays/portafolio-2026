@@ -57,5 +57,22 @@ const lang = Astro.currentLocale ?? 'es'
 
       document.addEventListener('astro:page-load', initScrollAnimations)
     </script>
+    <script>
+      const SCROLL_KEY = 'lang-switch-scroll'
+
+      document.addEventListener('astro:page-load', () => {
+        const saved = sessionStorage.getItem(SCROLL_KEY)
+        if (saved !== null) {
+          window.scrollTo({ top: parseInt(saved), behavior: 'instant' })
+          sessionStorage.removeItem(SCROLL_KEY)
+        }
+
+        document.querySelectorAll('[data-lang-switch]').forEach(el => {
+          el.addEventListener('click', () => {
+            sessionStorage.setItem(SCROLL_KEY, window.scrollY.toString())
+          }, { once: true })
+        })
+      })
+    </script>
   </body>
 </html>
