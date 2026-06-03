@@ -1,90 +1,42 @@
 ---
 import type { ui } from '@i18n/ui'
 import { useTranslations } from '@i18n/utils'
-import AngularIcon  from '@icons/AngularIcon.svg'
-import AstroIcon    from '@icons/AstroIcon.svg'
-import DockerIcon   from '@icons/DockerIcon.svg'
-import JavaIcon     from '@icons/JavaIcon.svg'
-import MySQLIcon    from '@icons/MySQLIcon.svg'
-import NodeIcon     from '@icons/NodeIcon.svg'
-import PostgreSQLIcon from '@icons/PostgreSQLIcon.svg'
-import ReactIcon    from '@icons/ReactIcon.svg'
-import ShopifyIcon  from '@icons/ShopifyIcon.svg'
-import SpringBootIcon from '@icons/SpringBootIcon.svg'
-import TailwindIcon from '@icons/TailwindIcon.svg'
-import WordPressIcon from '@icons/WordPressIcon.svg'
+import { techs, type TechKey } from '@data/tech'
 
 const lang = (Astro.currentLocale ?? 'es') as keyof typeof ui
 const t = useTranslations(lang)
 
-interface TechInfo {
-  href:  string
-  color: string
-  Icon:  any
+interface Experience {
+  company:     string
+  role:        string
+  period:      [string, string | null]
+  description: string
+  tags:        TechKey[]
 }
 
-const techData: Record<string, TechInfo> = {
-  'Node.js':     { href: 'https://nodejs.org/docs',                                   color: '#339933', Icon: NodeIcon      },
-  'React':       { href: 'https://react.dev',                                          color: '#61DAFB', Icon: ReactIcon     },
-  'PostgreSQL':  { href: 'https://www.postgresql.org/docs/',                           color: '#4169E1', Icon: PostgreSQLIcon},
-  'Docker':      { href: 'https://docs.docker.com',                                    color: '#2496ED', Icon: DockerIcon    },
-  'Astro':       { href: 'https://docs.astro.build',                                   color: '#6c0aff', Icon: AstroIcon     },
-  'Tailwind CSS':{ href: 'https://tailwindcss.com/docs',                               color: '#06B6D4', Icon: TailwindIcon  },
-  'Shopify':     { href: 'https://shopify.dev/docs',                                   color: '#7AB55C', Icon: ShopifyIcon   },
-  'WordPress':   { href: 'https://developer.wordpress.org',                            color: '#21759B', Icon: WordPressIcon },
-  'Java':        { href: 'https://docs.oracle.com/en/java/',                           color: '#ED8B00', Icon: JavaIcon      },
-  'Spring Boot': { href: 'https://docs.spring.io/spring-boot/docs/current/reference/html/', color: '#6DB33F', Icon: SpringBootIcon },
-  'Angular':     { href: 'https://angular.dev/overview',                               color: '#DD0031', Icon: AngularIcon   },
-  'MySQL':       { href: 'https://dev.mysql.com/doc/',                                 color: '#4479A1', Icon: MySQLIcon     },
-}
-
-const experiences = lang === 'es'
-  ? [
-      {
-        company:     'Grupo Montajes',
-        role:        'Desarrollador Full Stack',
-        period:      ['Ene 2024', null],
-        description: 'Desarrollo y mantenimiento de aplicaciones internas para gestión de proyectos industriales. Implementación de APIs REST y dashboards con datos en tiempo real.',
-        tags:        ['Node.js', 'React', 'PostgreSQL', 'Docker'],
-      },
-      {
-        company:     'Freelance',
-        role:        'Desarrollador Web',
-        period:      ['Mar 2022', 'Dic 2023'],
-        description: 'Diseño y desarrollo de sitios web y tiendas en línea para pequeñas empresas. Enfoque en rendimiento, SEO y experiencia de usuario.',
-        tags:        ['Astro', 'Tailwind CSS', 'Shopify', 'WordPress'],
-      },
-      {
-        company:     'Softtek',
-        role:        'Desarrollador Junior',
-        period:      ['Jun 2021', 'Feb 2022'],
-        description: 'Participación en proyectos de desarrollo de software para clientes del sector financiero. Mantenimiento de aplicaciones legacy y migración a tecnologías modernas.',
-        tags:        ['Java', 'Spring Boot', 'Angular', 'MySQL'],
-      },
-    ]
-  : [
-      {
-        company:     'Grupo Montajes',
-        role:        'Full Stack Developer',
-        period:      ['Jan 2024', null],
-        description: 'Development and maintenance of internal applications for industrial project management. Implementation of REST APIs and real-time data dashboards.',
-        tags:        ['Node.js', 'React', 'PostgreSQL', 'Docker'],
-      },
-      {
-        company:     'Freelance',
-        role:        'Web Developer',
-        period:      ['Mar 2022', 'Dec 2023'],
-        description: 'Design and development of websites and online stores for small businesses. Focus on performance, SEO and user experience.',
-        tags:        ['Astro', 'Tailwind CSS', 'Shopify', 'WordPress'],
-      },
-      {
-        company:     'Softtek',
-        role:        'Junior Developer',
-        period:      ['Jun 2021', 'Feb 2022'],
-        description: 'Participation in software development projects for financial sector clients. Maintenance of legacy applications and migration to modern technologies.',
-        tags:        ['Java', 'Spring Boot', 'Angular', 'MySQL'],
-      },
-    ]
+const experiences: Experience[] = [
+  {
+    company:     'Gasmonsoft',
+    role:        t('exp.gasmonsoft.role'),
+    period:      [t('exp.gasmonsoft.from'), null],
+    description: t('exp.gasmonsoft.desc'),
+    tags:        ['.Net', 'Astro', 'Tailwind CSS', 'JavaScript', 'Sql Server'],
+  },
+  {
+    company:     'Grupo Aguilera',
+    role:        t('exp.aguilera.role'),
+    period:      [t('exp.aguilera.from'), null],
+    description: t('exp.aguilera.desc'),
+    tags:        ['React Native', 'Nativewind', '.Net', 'MySQL', 'Tanstack'],
+  },
+  {
+    company:     'Freelance',
+    role:        t('exp.freelance.role'),
+    period:      [t('exp.freelance.from'), null],
+    description: t('exp.freelance.desc'),
+    tags:        ['Astro', 'Shopify', 'Tailwind CSS', 'JavaScript'],
+  },
+]
 
     const sectionId = t('nav.experience.href').slice(1)
 ---
@@ -121,7 +73,7 @@ const experiences = lang === 'es'
 
             <div class='flex flex-wrap gap-2'>
               {exp.tags.map(tag => {
-                const tech = techData[tag]
+                const tech = techs[tag]
                 if (!tech) return (
                   <span class='font-mono text-[11px] px-2.5 py-1 rounded-md bg-base-content/6 text-base-content/50 border border-base-content/8'>
                     {tag}
