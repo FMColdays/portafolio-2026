@@ -120,13 +120,16 @@ const sectionId = t('nav.projects.href').slice(1)
                       </span>
                     )
                   return (
-                    <span
-                      class='inline-flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded-md border'
+                    <a
+                      href={tech.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      class='inline-flex items-center gap-1 font-mono text-[10px] px-2 py-0.5 rounded-md border transition-opacity duration-200 hover:opacity-70'
                       style={`background-color: ${tech.color}14; color: ${tech.color}; border-color: ${tech.color}30;`}
                     >
                       <tech.Icon class='w-3 h-3 shrink-0 fill-current' aria-hidden='true' />
                       {tag}
-                    </span>
+                    </a>
                   )
                 })}
               </div>
