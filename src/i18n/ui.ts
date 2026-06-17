@@ -55,10 +55,12 @@ export const ui = {
       'Desarrollo de Fuel Software Control y Flotal, plataformas SaaS para gestión de flotas vehiculares. Implementé módulos de monitoreo de combustible en tiempo real, sistema de alertas por consumo anómalo, panel administrativo con reportes exportables y control de llantas por unidad. Diseñé e integré APIs REST con .NET, modelé la base de datos en SQL Server y construí el sitio de marketing con Astro, Clerk para autenticación y Resend para correos transaccionales.',
     'exp.aguilera.role': 'Desarrollador Freelance',
     'exp.aguilera.from': 'Ene 2024',
+    'exp.aguilera.to':   'Dic 2024',
     'exp.aguilera.desc':
       'Diseñé y desarrollé un sistema integral de gestión de créditos compuesto por panel web y app móvil. Implementé seguimiento de cartera por cliente, registro de incidencias de pago, visualización de días de mora, carga de comprobantes y notificaciones al equipo. Construí la app móvil con React Native y Nativewind, sincronización de datos con Tanstack Query y el backend con .NET y MySQL. Doy mantenimiento continuo y agrego funcionalidades según requerimientos.',
     'exp.freelance.role': 'Desarrollador Freelance',
     'exp.freelance.from': '2023',
+    'exp.freelance.to':   '2024',
     'exp.freelance.desc':
       'Desarrollo de soluciones web a medida para clientes en México y Norteamérica. Configuré y personalicé la tienda Shopify de TPMS.ca (Canadá) con pasarela de pago, gestión de inventario y optimización SEO. Desarrollé Premios Ritmo Son, plataforma de votación con autenticación, base de datos SQLite vía Prisma y despliegue en Vercel. Mantenimiento continuo de proyectos con foco en rendimiento y experiencia de usuario.',
 
@@ -128,10 +130,12 @@ export const ui = {
       'Built and maintain Fuel Software Control and Flotal, SaaS platforms for fleet vehicle management. Implemented real-time fuel monitoring modules, anomaly alert systems, admin panels with exportable reports and per-unit tire tracking. Designed REST APIs with .NET, modeled the SQL Server database and built the marketing site with Astro, Clerk for authentication and Resend for transactional emails.',
     'exp.aguilera.role': 'Freelance Developer',
     'exp.aguilera.from': 'Jan 2024',
+    'exp.aguilera.to':   'Dec 2024',
     'exp.aguilera.desc':
       'Designed and built a full credit management system made up of a web dashboard and a mobile app. Implemented per-client portfolio tracking, payment incident logging, overdue day visualization, receipt uploads and team notifications. Built the mobile app with React Native and Nativewind, real-time data sync with Tanstack Query and the backend with .NET and MySQL. Provide ongoing maintenance and feature development.',
     'exp.freelance.role': 'Freelance Developer',
     'exp.freelance.from': '2023',
+    'exp.freelance.to':   '2024',
     'exp.freelance.desc':
       'Custom web development for clients in Mexico and North America. Configured and customized the TPMS.ca Shopify store (Canada) with payment gateway, inventory management and SEO optimization. Built Premios Ritmo Son, a voting platform with authentication, SQLite database via Prisma and Vercel deployment. Ongoing maintenance across projects with a focus on performance and user experience.',
 
