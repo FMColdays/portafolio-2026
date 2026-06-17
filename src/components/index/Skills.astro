@@ -12,9 +12,9 @@ interface Category {
 }
 
 const categories: Category[] = [
-  { key: 'skills.cat.frontend',  skills: ['TypeScript', 'JavaScript', 'React', 'Preact', 'Angular', 'Astro', 'Tailwind CSS'] },
+  { key: 'skills.cat.frontend',  skills: ['TypeScript', 'JavaScript', 'React', 'Preact', 'Astro', 'Tailwind CSS'] },
   { key: 'skills.cat.mobile',    skills: ['React Native', 'Nativewind'] },
-  { key: 'skills.cat.backend',   skills: ['Node.js', '.Net', 'Java', 'Spring Boot'] },
+  { key: 'skills.cat.backend',   skills: ['Node.js', '.Net', 'Java'] },
   { key: 'skills.cat.databases', skills: ['PostgreSQL', 'MySQL', 'Sqlite', 'Sql Server', 'Prisma'] },
   { key: 'skills.cat.devops',    skills: ['Docker', 'Git'] },
   { key: 'skills.cat.cms',       skills: ['Shopify', 'WordPress'] },
@@ -48,13 +48,16 @@ const sectionId = t('nav.skills.href').slice(1)
               const skill = techs[key]
               if (!skill) return null
               return (
-                <div
-                  class='group/skill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200 cursor-default hover:scale-105'
+                <a
+                  href={skill.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='group/skill inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200 hover:scale-105 hover:opacity-80'
                   style={`background-color: ${skill.color}12; color: ${skill.color}; border-color: ${skill.color}28;`}
                 >
                   <skill.Icon class='w-4 h-4 shrink-0 fill-current' aria-hidden='true' />
                   <span class='font-mono text-[11px] font-medium tracking-wide'>{skill.name}</span>
-                </div>
+                </a>
               )
             })}
           </div>
