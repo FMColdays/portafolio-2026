@@ -82,6 +82,9 @@ export const ui = {
     'proj.fuelweb.title': 'Fuel Software Control',
     'proj.fuelweb.desc':
       'Desarrollé el sitio web de una plataforma empresarial para el monitoreo y control de combustible en flotas vehiculares. Incluye autenticación con Clerk, envío de correos con Resend y secciones de productos como tarjetas de combustible, sensores y software de consumo.',
+    'proj.webutils.title': '@fmcoldays/web-utils',
+    'proj.webutils.desc':
+      'Monorepo de utilidades web reutilizables publicadas en npm bajo el scope @fmcoldays. Incluye paquetes para peticiones HTTP declarativas, modales con vistas parciales Razor, drag & drop con preview, y notificaciones toast. Construido con TypeScript, tsup y pnpm workspaces.',
   },
   en: {
     'site.title': 'Erick González — Full Stack Developer',
@@ -157,5 +160,8 @@ export const ui = {
     'proj.fuelweb.title': 'Fuel Software Control',
     'proj.fuelweb.desc':
       'Developed the website for an enterprise fleet fuel management platform. Features authentication with Clerk, email delivery with Resend and product sections covering fuel cards, vehicle sensors and consumption monitoring software.',
+    'proj.webutils.title': '@fmcoldays/web-utils',
+    'proj.webutils.desc':
+      'Monorepo of reusable web utilities published on npm under the @fmcoldays scope. Includes packages for declarative HTTP requests, Razor partial-view modals, drag & drop with preview, and toast notifications. Built with TypeScript, tsup and pnpm workspaces.',
   },
 } as const

@@ -1,0 +1,70 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#ffffff"/>
+
+  <!-- Top nav bar -->
+  <rect width="800" height="52" fill="#ffffff"/>
+  <rect y="52" width="800" height="1" fill="#e5e7eb"/>
+
+  <!-- npm logo in nav -->
+  <rect x="24" y="14" width="36" height="24" rx="3" fill="#cb3837"/>
+  <text x="42" y="31" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff" letter-spacing="0.5">npm</text>
+
+  <!-- Nav links -->
+  <text x="76" y="31" font-size="13" fill="#6b7280">Products</text>
+  <text x="144" y="31" font-size="13" fill="#6b7280">Pricing</text>
+  <text x="206" y="31" font-size="13" fill="#6b7280">Documentation</text>
+  <text x="330" y="31" font-size="13" fill="#6b7280">Community</text>
+
+  <!-- Search bar -->
+  <rect x="440" y="13" width="220" height="26" rx="4" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="454" y="30" font-size="12" fill="#9ca3af">Search packages</text>
+
+  <!-- Profile section -->
+  <!-- Avatar circle -->
+  <circle cx="64" cy="130" r="44" fill="#f3e8ff"/>
+  <!-- Simple avatar illustration -->
+  <circle cx="64" cy="118" r="18" fill="#a855f7"/>
+  <ellipse cx="64" cy="154" rx="28" ry="16" fill="#a855f7"/>
+  <text x="64" y="125" text-anchor="middle" font-size="18" fill="#ffffff">👤</text>
+
+  <!-- Username -->
+  <text x="124" y="115" font-size="22" font-weight="700" fill="#1a1a1a">fmcoldays</text>
+
+  <!-- Packages / Orgs tabs -->
+  <rect x="124" y="130" width="100" height="28" rx="4" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="174" y="149" text-anchor="middle" font-size="12" font-weight="600" fill="#4f46e5">📦 6 Packages</text>
+  <rect x="234" y="130" width="120" height="28" rx="4" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="294" y="149" text-anchor="middle" font-size="12" fill="#6b7280">👥 0 Organizations</text>
+
+  <!-- Divider -->
+  <line x1="24" y1="178" x2="776" y2="178" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Packages title -->
+  <text x="24" y="208" font-size="17" font-weight="700" fill="#1a1a1a">Packages</text>
+  <rect x="92" y="193" width="22" height="20" rx="10" fill="#f3f4f6"/>
+  <text x="103" y="207" text-anchor="middle" font-size="11" font-weight="600" fill="#6b7280">6</text>
+
+  <!-- Package rows -->
+  <!-- @fmcoldays/all -->
+  <text x="24" y="240" font-size="14" font-weight="600" fill="#cb3837">@fmcoldays/all</text>
+  <text x="24" y="257" font-size="12" fill="#6b7280">Meta-paquete: instala y registra todos los paquetes @fmcoldays de una vez.</text>
+  <text x="24" y="272" font-size="11" fill="#9ca3af">fmcoldays  published 0.1.28 • a day ago</text>
+  <line x1="24" y1="282" x2="776" y2="282" stroke="#f3f4f6" stroke-width="1"/>
+
+  <!-- @fmcoldays/post-action -->
+  <text x="24" y="300" font-size="14" font-weight="600" fill="#cb3837">@fmcoldays/post-action</text>
+  <text x="24" y="317" font-size="12" fill="#6b7280">Ejecuta peticiones HTTP declarativas al hacer click en elementos con data-action-url.</text>
+  <text x="24" y="332" font-size="11" fill="#9ca3af">fmcoldays  published 0.4.19 • a day ago</text>
+  <line x1="24" y1="342" x2="776" y2="342" stroke="#f3f4f6" stroke-width="1"/>
+
+  <!-- @fmcoldays/modal -->
+  <text x="24" y="360" font-size="14" font-weight="600" fill="#cb3837">@fmcoldays/modal</text>
+  <text x="24" y="377" font-size="12" fill="#6b7280">Modal autocontenido: carga vistas parciales Razor en un dialog vía fetch.</text>
+  <text x="24" y="392" font-size="11" fill="#9ca3af">fmcoldays  published 0.6.6 • a day ago</text>
+  <line x1="24" y1="402" x2="776" y2="402" stroke="#f3f4f6" stroke-width="1"/>
+
+  <!-- @fmcoldays/dropzone -->
+  <text x="24" y="420" font-size="14" font-weight="600" fill="#cb3837">@fmcoldays/dropzone</text>
+  <text x="24" y="437" font-size="12" fill="#6b7280">Zona de carga de archivos con drag &amp; drop, previsualización y lightbox.</text>
+</svg>
