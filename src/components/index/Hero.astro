@@ -2,6 +2,7 @@
 import Link from '@components/shared/Link.astro'
 import type { ui } from '@i18n/ui'
 import { useTranslations } from '@i18n/utils'
+import DownloadIcon from '@icons/DownloadIcon.svg'
 import GithubIcon   from '@icons/GithubIcon.svg'
 import LinkedinIcon from '@icons/LinkedinIcon.svg'
 import MailIcon     from '@icons/MailIcon.svg'
@@ -61,7 +62,7 @@ const socials = [
       {t('hero.description')}
     </p>
 
-    <div class='flex items-center gap-1 animate-fade-in-up animate-delay-700'>
+    <div class='flex flex-wrap justify-center items-center gap-1 animate-fade-in-up animate-delay-700'>
       {socials.map(({ href, label, ariLabel, Icon, external }) => (
         <Link
           className='flex items-center gap-2 px-3 py-2 rounded-lg text-base-content/35 hover:text-base-content hover:bg-base-content/6 transition-all duration-200 font-mono text-xs'
@@ -73,6 +74,15 @@ const socials = [
           <span>{label}</span>
         </Link>
       ))}
+      <a
+        href={t('hero.cv_file')}
+        download
+        aria-label={t('hero.download_cv')}
+        class='flex items-center gap-2 px-3 py-2 rounded-lg text-base-content/35 hover:text-base-content hover:bg-base-content/6 transition-all duration-200 font-mono text-xs'
+      >
+        <DownloadIcon class='w-4 h-4 shrink-0 fill-current' />
+        <span>{t('hero.download_cv')}</span>
+      </a>
     </div>
 
   </div>
