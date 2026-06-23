@@ -48,6 +48,8 @@ export const ui = {
       'Como egresado del Instituto Tecnológico de Tuxtla Gutiérrez, <mark>adquirí habilidades en tecnologías como Java, C, C++ y PHP</mark>, con especialización en su framework Laravel. Además, de manera autodidacta he estudiado diversas tecnologías para expandir mis conocimientos como desarrollador de software.',
     'nav.about': 'Sobre mí',
     'nav.about.href': '#sobre-mi',
+    'hero.download_cv': 'Descargar CV',
+    'hero.cv_file': '/CV_Erick_Gonzalez_Perez_ES.pdf',
 
     'exp.gasmonsoft.role': 'Desarrollador Full Stack',
     'exp.gasmonsoft.from': 'Nov 2023',
@@ -126,6 +128,8 @@ export const ui = {
       'As a graduate of the Instituto Tecnológico de Tuxtla Gutiérrez, <mark>I gained skills in Java, C, C++ and PHP</mark>, with a specialization in the Laravel framework. I have also been self-taught in a wide range of technologies to grow as a software developer.',
     'nav.about': 'About me',
     'nav.about.href': '#about',
+    'hero.download_cv': 'Download CV',
+    'hero.cv_file': '/CV_Erick_Gonzalez_Perez_EN.pdf',
 
     'exp.gasmonsoft.role': 'Full Stack Developer',
     'exp.gasmonsoft.from': 'Nov 2023',
