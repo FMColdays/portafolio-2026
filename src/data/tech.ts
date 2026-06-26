@@ -20,6 +20,8 @@ import WordPressIcon from '@icons/WordPressIcon.svg'
 import SqlServerIcon from '@icons/SqlServer.svg'
 import ResendIcon from '@icons/ResendIcon.svg'
 import ClerkIcon from '@icons/ClerkIcon.svg'
+import LaravelIcon from '@icons/LaravelIcon.svg'
+import PythonIcon from '@icons/PythonIcon.svg'
 
 
 
@@ -36,6 +38,7 @@ export const TECH_KEYS = [
   'TypeScript', 'React', 'React Native', 'Preact', 'Astro', 'Tailwind CSS', 'Nativewind',
   'Node.js', 'Java', 'PostgreSQL', 'MySQL',
   'Docker', 'Git', 'Shopify', 'WordPress','Sqlite', 'Prisma', '.Net','JavaScript', 'Tanstack', 'Sql Server','Css', 'Resend', 'Clerk',
+  'Laravel', 'Python',
 ] as const
 
 export type TechKey = typeof TECH_KEYS[number]
@@ -64,6 +67,7 @@ export const techs: Record<TechKey, Tech> = {
   'Tanstack':     {name: 'Tanstack',      color: '#7c7777', href: 'https://tanstack.com',                                        Icon: TanstackIcon    },
   'Resend':       {name: 'Resend',        color: '#000000', href: 'https://resend.com',                                          Icon: ResendIcon      },
   'Clerk':        {name: 'Clerk',         color: '#6C47FF',href: 'https://clerk.com',                                           Icon: ClerkIcon       },
-  'Sql Server':   {name: 'Sql Server',    color: '#ff0000', href: 'https://learn.microsoft.com/es-es/sql/?view=sql-server-ver17&viewFallbackFrom=sql-server-ver1', Icon: SqlServerIcon }
-
+  'Sql Server':   {name: 'Sql Server',    color: '#ff0000', href: 'https://learn.microsoft.com/es-es/sql/?view=sql-server-ver17&viewFallbackFrom=sql-server-ver1', Icon: SqlServerIcon },
+  'Laravel':      { name: 'Laravel',      color: '#FF2D20', href: 'https://laravel.com/docs',                                      Icon: LaravelIcon     },
+  'Python':       { name: 'Python',       color: '#3776AB', href: 'https://docs.python.org',                                       Icon: PythonIcon      },
 }
