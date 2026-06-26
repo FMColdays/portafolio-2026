@@ -87,6 +87,12 @@ export const ui = {
     'proj.webutils.title': '@fmcoldays/web-utils',
     'proj.webutils.desc':
       'Monorepo de utilidades web reutilizables publicadas en npm bajo el scope @fmcoldays. Incluye paquetes para peticiones HTTP declarativas, modales con vistas parciales Razor, drag & drop con preview, y notificaciones toast. Construido con TypeScript, tsup y pnpm workspaces.',
+    'proj.tecnmtest.title': 'TecNM Test — Salud Mental Universitaria',
+    'proj.tecnmtest.desc':
+      'Herramienta web para identificar trastornos mentales en estudiantes universitarios mediante cuestionarios clínicos validados (AUDIT, PHQ-9, MDQ, DEP-ADO, BHS, CEAU). Expone una API para algoritmos de inteligencia artificial. Aplicada a 199 estudiantes del ITTG.',
+    'proj.tecnmtest.publication': 'Publicación científica',
+    'proj.tecnmtest.journal': 'Revista Tecnología Digital, Vol. 14 No. 2, 2024 · LatIndex',
+    'proj.tecnmtest.download': 'Artículo PDF',
   },
   en: {
     'site.title': 'Erick González — Full Stack Developer',
@@ -167,5 +173,11 @@ export const ui = {
     'proj.webutils.title': '@fmcoldays/web-utils',
     'proj.webutils.desc':
       'Monorepo of reusable web utilities published on npm under the @fmcoldays scope. Includes packages for declarative HTTP requests, Razor partial-view modals, drag & drop with preview, and toast notifications. Built with TypeScript, tsup and pnpm workspaces.',
+    'proj.tecnmtest.title': 'TecNM Test — University Mental Health',
+    'proj.tecnmtest.desc':
+      'Web tool for identifying mental disorders in university students using validated clinical questionnaires (AUDIT, PHQ-9, MDQ, DEP-ADO, BHS, CEAU). Exposes an API for AI algorithms. Applied to 199 students at ITTG.',
+    'proj.tecnmtest.publication': 'Scientific publication',
+    'proj.tecnmtest.journal': 'Revista Tecnología Digital, Vol. 14 No. 2, 2024 · LatIndex',
+    'proj.tecnmtest.download': 'Article PDF',
   },
 } as const
