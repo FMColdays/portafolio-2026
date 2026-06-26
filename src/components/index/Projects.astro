@@ -3,6 +3,7 @@ import Link from '@components/shared/Link.astro'
 import { techs, type TechKey } from '@data/tech'
 import type { ui } from '@i18n/ui'
 import { useTranslations } from '@i18n/utils'
+import DownloadIcon from '@icons/DownloadIcon.svg'
 import ExternalLinkIcon from '@icons/ExternalLinkIcon.svg'
 import GithubIcon from '@icons/GithubIcon.svg'
 import CreditTrackerWeb from '@img/projects/credit-tracker-web.webp'
@@ -11,6 +12,7 @@ import FuelSoftwareControlProject from '@img/projects/fuel-software-control.webp
 import RitmoProject from '@img/projects/ritmo-son.webp'
 import Tpms from '@img/projects/tpms.webp'
 import FuelSoftwareControlWeb from '@img/projects/fuel-software-control-web.webp'
+import TecNMTestImage from '@img/projects/tecnmtest.png'
 import WebUtilsImage from '@img/projects/web-utils.svg?url'
 
 import type { ImageMetadata } from 'astro'
@@ -27,6 +29,8 @@ interface Project {
   imageSrc?: string
   github?: string
   url?: string
+  publication?: { label: string; journal: string; href: string }
+  download?: { href: string; label: string }
 }
 
 const projects: Project[] = [
@@ -81,6 +85,22 @@ const projects: Project[] = [
     github: 'https://github.com/FMColdays/web-utils',
     url: 'https://www.npmjs.com/~fmcoldays',
   },
+  {
+    title: t('proj.tecnmtest.title'),
+    description: t('proj.tecnmtest.desc'),
+    tags: ['Laravel', 'Python', 'MySQL', 'JavaScript', 'Css'],
+    image: TecNMTestImage,
+    url: 'https://www.tecnmtest.com/',
+    publication: {
+      label: t('proj.tecnmtest.publication'),
+      journal: t('proj.tecnmtest.journal'),
+      href: 'https://www.revistatecnologiadigital.com/pdf/rtd_14_02.pdf#page=147',
+    },
+    download: {
+      href: '/articulo-trastornos-mentales-universitarios.pdf',
+      label: t('proj.tecnmtest.download'),
+    },
+  },
 ]
 
 const sectionId = t('nav.projects.href').slice(1)
@@ -127,6 +147,22 @@ const sectionId = t('nav.projects.href').slice(1)
               <h3 class='font-bold text-base group-hover:text-primary transition-colors duration-200 leading-snug'>{project.title}</h3>
               <p class='text-sm text-base-content/50 leading-relaxed flex-1'>{project.description}</p>
 
+              {project.publication && (
+                <a
+                  href={project.publication.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  class='inline-flex flex-col gap-0.5 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 hover:border-primary/40 hover:bg-primary/10 transition-all duration-200 group/pub'
+                >
+                  <span class='font-mono text-[9px] text-primary/70 uppercase tracking-widest group-hover/pub:text-primary transition-colors duration-200'>
+                    {project.publication.label}
+                  </span>
+                  <span class='font-mono text-[10px] text-base-content/50 group-hover/pub:text-base-content/70 transition-colors duration-200 leading-snug'>
+                    {project.publication.journal}
+                  </span>
+                </a>
+              )}
+
               <div class='flex flex-wrap gap-1.5'>
                 {project.tags.map(tag => {
                   const tech = techs[tag]
@@ -151,7 +187,7 @@ const sectionId = t('nav.projects.href').slice(1)
                 })}
               </div>
 
-              {(project.github || project.url) && (
+              {(project.github || project.url || project.download) && (
                 <div class='flex items-center gap-4 pt-3 border-t border-base-content/6'>
                   {project.github && (
                     <Link
@@ -174,6 +210,16 @@ const sectionId = t('nav.projects.href').slice(1)
                       <ExternalLinkIcon class='w-3.5 h-3.5 shrink-0' />
                       {t('projects.demo')}
                     </Link>
+                  )}
+                  {project.download && (
+                    <a
+                      href={project.download.href}
+                      download
+                      class='inline-flex items-center gap-1.5 font-mono text-[11px] text-base-content/35 hover:text-base-content transition-colors duration-200'
+                    >
+                      <DownloadIcon class='w-3.5 h-3.5 shrink-0 fill-current' />
+                      {project.download.label}
+                    </a>
                   )}
                 </div>
               )}
